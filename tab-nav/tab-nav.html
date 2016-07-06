@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+ul,li{padding:0;margin:0;list-style:none}.clearfix{zoom:1}.clearfix:after{content:"";display:block;clear:both}.nav-box{box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;width:100%;position:relative}.nav-box *,.nav-box *:after,.nav-box *:before{box-sizing:inherit;-moz-box-sizing:inherit;-webkit-box-sizing:inherit}.nav-box li{width:80px;text-align:center;padding:10px 0;float:left}.nav-bottom-line{position:absolute;width:80px;height:5px;background-color:#000;top:100%;left:0;transition:all 0.3s ease;-ms-transition:all 0.3s ease;-moz-transition:all 0.3s ease;-webkit-transition:all 0.3s ease}
+</style>
+
+<body>
+    <div class="nav-box">
+        <ul class="clearfix">
+            <li>menu-1</li>
+            <li>menu-2</li>
+            <li>menu-3</li>
+            <li>menu-4</li>
+        </ul>
+        <div class="nav-bottom-line"></div>
+    </div>
+</body>
+
+</html>
+<script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$('.nav-box >ul >li').each(function(i) {
+    var _this = $(this);
+    _this.on('click', function() {
+        var left = 80 * i;
+        $('.nav-bottom-line').css('left', left);
+    });
+});
+</script>
+
