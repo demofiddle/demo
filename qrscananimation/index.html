@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>二维码扫描动画效果（CSS3）</title>
+  <style>
+  .container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 100px auto 50px;
+    background: #009900;
+  }
+  
+  .container:before,
+  .container:after {
+    position: absolute;
+    content: '';
+    background: #fff;
+  }
+  
+  .container:before {
+    width: 160px;
+    height: 250px;
+    left: 50%;
+    top: 0;
+    margin-left: -80px;
+  }
+  
+  .container:after {
+    width: 250px;
+    height: 160px;
+    top: 50%;
+    left: 0;
+    margin-top: -80px;
+  }
+  
+  .content {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    padding: 5px;
+    width: 230px;
+    height: 230px;
+    z-index: 2;
+    background-color: #fff;
+  }
+  
+  .content img {
+    width: 100%;
+    z-index: 5;
+  }
+  
+  .line {
+    position: absolute;
+    top: 15px;
+    left: -55px;
+    z-index: 2;
+    height: 3px;
+    width: 360px;
+    background: #009900;
+    /*动画效果*/
+    animation: myScan 1s infinite alternate;
+    -webkit-animation: myScan 1s infinite alternate;
+  }
+  
+  @keyframes myScan {
+    from {
+      top: 15px;
+    }
+    to {
+      top: 230px;
+    }
+  }
+  
+  -webkit-@keyframes myScan {
+    from {
+      top: 15px;
+    }
+    to {
+      top: 230px;
+    }
+  }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="content">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAEYCAIAAAAI7H7bAAAFUElEQVR4nO3dMXLrOBAAUWlr739l/3wDBLMt/KH8XuqySNHuQjAF4v3z8/MC/p9//vYNwDcQEgSEBAEhQUBIEBASBIQEASFB4N/Dz97v97X7yB0GzYfvNfutmfxaNz9w5lv/o15WJEgICQJCgoCQICAkCAgJAkKCgJAgcBrIHizZV3tzcLnkK89u4+ageWbJ4x0/DSsSBIQEASFBQEgQEBIEhAQBIUFASBAYDmQPbu4kvWnJrPbmXtdHf+WDT9y8FQkCQoKAkCAgJAgICQJCgoCQICAkCPQD2f3yVxbffAfykpcq8x9WJAgICQJCgoCQICAkCAgJAkKCgJAg8BsHskve+vutR77+zjGuFQkCQoKAkCAgJAgICQJCgoCQICAkCPQD2W+dx82mk0tOaL25hzf3iP8oKxIEhAQBIUFASBAQEgSEBAEhQUBIEBgOZJeM6mbyo1FnM818Eppf6+as9tH/US8rEiSEBAEhQUBIEBASBIQEASFBQEgQeD9i++FXWjIJPcjHuF/MigQBIUFASBAQEgSEBAEhQUBIEBASBPpXFi+ZM94cJt6cTi7Z67pkVrvnT2lFgoCQICAkCAgJAkKCgJAgICQICAkCW86QXTJnzO2ZGG641qNv/syKBAEhQUBIEBASBIQEASFBQEgQEBIETgPZ/fO4fFZ7c7to7ubZuDP799WOWZEgICQICAkCQoKAkCAgJAgICQJCgsDpDNlHH1e6/5DTR+/8zQfo+bVmtzG+lhUJAkKCgJAgICQICAkCQoKAkCAgJAgMX1mcz+OWTCeXzKBvXmvJ5Prp17IiQUBIEBASBIQEASFBQEgQEBIEhASB4Q7ZR2xavGbJzS/5e+WW3Pz5NqxIEBASBIQEASFBQEgQEBIEhAQBIUFguEN25uY22JuH0i6ZGObXmn3l/ePpT7AiQUBIEBASBIQEASFBQEgQEBIEhASBfiC7ZO/kkjnj/lNT8w+8+Yrpm1PyMysSBIQEASFBQEgQEBIEhAQBIUFASBDoB7KzeVw+4Mt3yOa/dXMP702PfhrjD7QiQUBIEBASBIQEASFBQEgQEBIEhASB0xmyw0/cMTFcchsHS7YSH+y/wxlnyMJSQoKAkCAgJAgICQJCgoCQICAkCJx2yO7Zfjj4wJu3cfNaS7YSz+yfuo5ZkSAgJAgICQJCgoCQICAkCAgJAkKCwHCH7JI54+wDb3r007h5ou6SF1OPR8ZWJAgICQJCgoCQICAkCAgJAkKCgJAgcBrILhkL5mZfeckHzix58jdd/qNYkSAgJAgICQJCgoCQICAkCAgJAkKCwOmVxflY8FsPb803ft68DddKWJEgICQICAkCQoKAkCAgJAgICQJCgsDwDNn9DqO6/SeZLnny3zoy/gQrEgSEBAEhQUBIEBASBIQEASFBQEgQOA1kD5bsTMzHnTc3tN4cQc6+8v5XMc+u9YlZrRUJAkKCgJAgICQICAkCQoKAkCAgJAgMB7IH+weXuSUv6V3yoG5uTV0yaH5ZkSAhJAgICQJCgoCQICAkCAgJAkKCQD+Q3W//23GXjFZnloynZ8YfaEWCgJAgICQICAkCQoKAkCAgJAgICQK/cSB7c3665BjWm29p3n9QbP6gXlYkSAgJAkKCgJAgICQICAkCQoKAkCDQD2T37+78xDzuubdx8zTYJfPTTzxeKxIEhAQBIUFASBAQEgSEBAEhQUBIEBgOZG+eE7pEPsW7uWv14OZodXYbS8bTdsjCxwkJAkKCgJAgICQICAkCQoKAkCDw3r+hFfazIkFASBAQEgSEBAEhQUBIEBASBIQEASFB4A9QFjlXVIpc/AAAAABJRU5ErkJggg==">
+    </div>
+    <div class="line"></div>
+  </div>
+  <p style="text-align: center;"><del>参考</del>抄袭来自：<a href="http://www.zcool.com.cn/article/ZMzgyOTgw.html" target="_blank">www.zcool.com.cn/article/ZMzgyOTgw.html</a></p>
+</body>
+
+</html>
