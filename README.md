@@ -1,2 +1,2 @@
 # demo repo
-[https://demofuck.github.io/demo](https://demofuck.github.io/demo)
+[https://demofiddle.github.io/demo](https://demofiddle.github.io/demo)
