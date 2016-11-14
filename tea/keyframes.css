@@ -18,7 +18,8 @@ body {
     height: 91px;
     background-image: url(spritesheet.png);
     background-repeat: no-repeat;
-    animation: tea 5s step-end infinite;
+    background-position: 0 -1820px;
+    animation: tea 3s step-end;
 }
 
 .move {
@@ -27,7 +28,7 @@ body {
     left: 0;
     width: 137px;
     height: 91px;
-    background-color: #fff;
+    // background-color: #fff;
     background-image: url(waiter.png);
     background-repeat: no-repeat;
     background-position: center 5px;
@@ -44,7 +45,7 @@ body {
     text-align: center;
     font-size: 10px;
     animation-name: fadeIn;
-    animation-duration: 6s;
+    animation-duration: 1s;
     animation-delay: 5s;
     animation-fill-mode: both;
     // animation-iteration-count: infinite;
@@ -102,19 +103,22 @@ body {
     85% {
         background-position: 0 -1547px;
     }
-    95% {
+    90% {
         background-position: 0 -1638px;
     }
-    100% {
+    95% {
         background-position: 0 -1729px;
+    }
+    100% {
+        background-position: 0 -1820px;
     }
 }
 
 @keyframes fadeInRight {
     from {
         opacity: 0;
-        -webkit-transform: translate3d(100%, 0, 0);
-        transform: translate3d(100%, 0, 0);
+        -webkit-transform: translate3d(50px, 0, 0);
+        transform: translate3d(50px, 0, 0);
     }
     to {
         opacity: 1;
