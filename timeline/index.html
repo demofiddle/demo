@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>timeline</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        background: #444;
+    }
+    
+
+    
+    .container {
+        width: 400px;
+        margin: 300px auto 0;
+    }
+    /* clearfix为清除浮动 */
+    .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden
+    }
+    
+    /* 这里面使用了浮动，需要注意清除浮动 */
+    .status_container {
+        position: relative;
+        float: left;
+        text-align: center;
+        width: 25%;
+    }
+    
+    .status_text {
+        color: #cdcdcd;
+        padding: 5px;
+        transition: all .3s;
+    }
+    /* .status_text:after 这是小圆点 */
+    
+    .status_container:before {
+        position: absolute;
+        z-index: 3;
+        left: 50%;
+        bottom: -22px;
+        margin-left: -5px;
+        content: "";
+        display: block;
+        background: #cdcdcd;
+        border-radius: 99px;
+        width: 10px;
+        height: 10px;
+        border: 2px solid #444;
+        /* 用和大背景一般的颜色做出与线分离的效果 */
+    }
+    /* 这是那条横线 */
+    
+    .status_container:after {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        left: 50%;
+        bottom: -15px;
+        width: 100px;
+        /*这个宽度设为 .container 的1/4 */
+        height: 2px;
+        background: #cdcdcd;
+    }
+    
+    .status_container:last-child:after {
+        display: none;
+        /*隐藏最后一条线，用的是css3 :last-child选择器 */
+    }
+    /* 选中（当前状态，用selected这个class）效果 */
+    /*1.圆点颜色 */
+    
+    .selected.status_container:before {
+        background-color: #f79725;
+    }
+    /* 2.Tooltip */
+    /* top left 值自己调 */
+    
+    .selected .status_text {
+        position: relative;
+        top: -8px;
+        left: 2px;
+        color: #fff;
+        background: #f79725;
+        border-radius: 999px;
+    }
+    /* 这个是小三角形 */
+    
+    .selected .status_text:after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -6px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 6px 0 6px;
+        border-color: #f79725 transparent transparent transparent;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container clearfix">
+        <div class="status_container selected">
+            <span class="status_text">已发货</span>
+        </div>
+        <div class="status_container">
+            <!-- 这里面用selected标记状态-->
+            <span class="status_text">运输中</span>
+        </div>
+        <div class="status_container">
+            <span class="status_text">派件中</span>
+        </div>
+        <div class="status_container">
+            <span class="status_text">已签收</span>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script src="http://cdn.staticfile.org/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    $(".status_container").click(function(){
+        $(this).addClass("selected").siblings().removeClass("selected");
+    })
+</script>
