@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ccc;
+}
+
+.container {
+    position: relative;
+    width: 137px;
+    margin: 200px auto 0;
+}
+
+.tea {
+    width: 137px;
+    height: 91px;
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+    animation: tea 5s step-end infinite;
+}
+
+.move {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 137px;
+    height: 91px;
+    background-color: #fff;
+    background-image: url(waiter.png);
+    background-repeat: no-repeat;
+    background-position: center 5px;
+    animation-name: fadeInRight;
+    animation-duration: 3s;
+    animation-delay: 3s;
+    animation-fill-mode: both;
+    // animation-iteration-count: infinite;
+}
+
+.text {
+    position: relative;
+    bottom: 15px;
+    text-align: center;
+    font-size: 10px;
+    animation-name: fadeIn;
+    animation-duration: 6s;
+    animation-delay: 5s;
+    animation-fill-mode: both;
+    // animation-iteration-count: infinite;
+}
+
+@keyframes tea {
+    0% {
+        background-position: 0 0;
+    }
+    5% {
+        background-position: 0 -91px;
+    }
+    10% {
+        background-position: 0 -182px;
+    }
+    15% {
+        background-position: 0 -273px;
+    }
+    20% {
+        background-position: 0 -364px;
+    }
+    25% {
+        background-position: 0 -455px;
+    }
+    30% {
+        background-position: 0 -546px;
+    }
+    35% {
+        background-position: 0 -637px;
+    }
+    40% {
+        background-position: 0 -728px;
+    }
+    45% {
+        background-position: 0 -819px;
+    }
+    50% {
+        background-position: 0 -910px;
+    }
+    55% {
+        background-position: 0 -1001px;
+    }
+    60% {
+        background-position: 0 -1183px;
+    }
+    65% {
+        background-position: 0 -1274px;
+    }
+    70% {
+        background-position: 0 -1365px;
+    }
+    75% {
+        background-position: 0 -1456px;
+    }
+    85% {
+        background-position: 0 -1547px;
+    }
+    95% {
+        background-position: 0 -1638px;
+    }
+    100% {
+        background-position: 0 -1729px;
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0)
+    }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
