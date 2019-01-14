@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>summernote upload image demo</title>
+  <link crossorigin="anonymous" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" href="https://lib.baomitu.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link crossorigin="anonymous" integrity="sha384-hHEPAd3Dkb316VuNPtIZ6LUrzxvD4PQOTW478Ww6c/aUJKXNDV9pEx5/jZgISR1G" href="https://lib.baomitu.com/summernote/0.8.11/summernote.css" rel="stylesheet">
+  <script crossorigin="anonymous" integrity="sha384-RSXe9j39thYJayrqYBX6YfS7IV4bsKWZ9eEMYN+CLnB5pUyGAlXbUG/zWLqB62Na" src="https://lib.baomitu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script crossorigin="anonymous" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" src="https://lib.baomitu.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script crossorigin="anonymous" integrity="sha384-PhgMYQdqAZv2QCETJ8/VeYtc0g2UWXtMhJ8ADFdVLi/4k+czJ5TT6mEnrZSnkYFJ" src="https://lib.baomitu.com/summernote/0.8.11/summernote.min.js"></script>
+</head>
+<body>
+    <div id="summernote">
+      fuck summernote!
+    </div>
+    <script type="text/javascript">
+      $(function() {
+        $('#summernote').summernote({
+          height: 500,
+          callbacks: {
+            onImageUpload: function(files) {
+              var formData = new FormData();
+              formData.append('smfile', files[0]);
+              $.ajax({
+                url: 'https://sm.ms/api/upload',
+                method: 'post',
+                dataType: 'json',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(res) {
+                    if(res.code == 'success') {
+                        $('#summernote').summernote('insertImage', res.data.url, res.data.filename);
+                    }
+                }
+              })
+            }
+          }
+        });
+      });
+    </script>
+</body>
+</html>
